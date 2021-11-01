@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+	<title></title>
+</head>
+<body>
+	<div class="container pt-4">
+		<a href="{% url 'home_page' %}">
+			<button class="btn btn-primary">Home</button>
+		</a>
+		<a href="{% url 'student_list' %}">
+			<button class="btn btn-primary">Student List</button>
+		</a>
+	</div>
+	<hr>
+	<div class="container">
+		<form action="" method="post">
+			{% csrf_token %}
+			<h4>Are You Sure Want to Delete <span style="color: green; font-weight: bold;">"{{get_student_id.name}}"</span></h4>
+			<a href="{% url 'student_list' %}">Go Back</a>
+			<input type="submit" name="" class="btn btn-danger" value="Delete">
+
+		</form>
+	</div>
+</body>
+</html>
+</body>
+</html>

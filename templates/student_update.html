@@ -1,0 +1,50 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+	<title></title>
+</head>
+<body>
+	<div class="container pt-4">
+		<a href="{% url 'home_page' %}">
+			<button class="btn btn-primary">Home</button>
+		</a>
+		<a href="{% url 'student_list' %}">
+			<button class="btn btn-primary">Student List</button>
+		</a>
+	</div>
+	<hr>
+	<div class="container">
+		<h2>Student Update Page</h2>
+		<hr>
+	</div>
+	<div class="container" style="width: 60%; outline: 1px solid black; outline-offset: 9px;">
+		<form action="" method="post">
+		{% csrf_token %}
+		<div class="row">
+			<div class="col-sm-6">
+				{{ show_form.name | as_crispy_field }}
+			</div>
+			<div class="col-sm-6">
+				{{ show_form.father_name | as_crispy_field }}
+			</div>
+			<div class="col-sm-12">
+				{{ show_form.roll_no | as_crispy_field }}
+			</div>
+			<div class="col-sm-12">
+				{{ show_form.cnic | as_crispy_field }}
+			</div>
+			<div class="col-sm-6">
+				{{ show_form.address | as_crispy_field }}
+			</div>
+		</div>
+		<input type="submit" class="btn btn-success" name="" value="Update Student">
+	</form>
+	</div>
+</body>
+</html>

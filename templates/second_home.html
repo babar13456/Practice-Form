@@ -1,0 +1,34 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+	<title></title>
+</head>
+<body>
+	<div class="container pt-4">
+		<a href="{% url 'home_page' %}">
+			<button class="btn btn-primary">Home</button>
+		</a>
+		<a href="{% url 'student_list' %}">
+			<button class="btn btn-primary">Student List</button>
+		</a>
+	</div>
+	<hr>
+	<div class="container">
+		<h2>Second App Home</h2>
+		<hr>
+	</div>
+	<div class="container" style="width: 50%;">
+		<form>
+			{% csrf_token %}
+			{{form | crispy}}
+			<input type="submit" name="" value="Add Teacher">
+		</form>
+	</div>
+</body>
+</html>
